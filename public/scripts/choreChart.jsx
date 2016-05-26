@@ -14,9 +14,17 @@ var ChoreChart = React.createClass({
         <thead>
           <tr>
             <th></th>
-            <th>Exercise</th>
-            <th>3 Veggies</th>
-            <th>Vitamin</th>
+            {
+              this.state.headers.map((header, index) =>
+                <th key={index}>
+                  <input
+                    type="text"
+                    value={header}
+                    placeholder="<category>"
+                  />
+                </th>
+              )
+            }
           </tr>
         </thead>
 
