@@ -7,6 +7,11 @@ var ChoreChart = React.createClass({
       };
   },
 
+  updateHeader: function(index, event) {
+    this.state.headers[index] = event.target.value;
+    this.setState({ headers: this.state.headers });
+  },
+
   render: function() {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday",
                         "Friday", "Saturday", "Sunday"];
@@ -23,6 +28,7 @@ var ChoreChart = React.createClass({
                     type="text"
                     value={header}
                     placeholder="<category>"
+                    onChange={this.updateHeader.bind(this, index)}
                   />
                 </th>
               )
