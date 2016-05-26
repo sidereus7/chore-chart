@@ -8,7 +8,7 @@ var ChoreChart = React.createClass({
   },
 
   render: function() {
-    var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday",
+    const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday",
                       "Friday", "Saturday", "Sunday"];
 
     return (
