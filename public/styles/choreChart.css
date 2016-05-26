@@ -1,1 +1,9 @@
 /* Chore Chart base styles */
+
+.pure-table thead {
+    border-bottom: 1px solid #cbcbcb;
+}
+
+th[scope="row"] {
+    border-bottom: 1px solid #cbcbcb;
+}

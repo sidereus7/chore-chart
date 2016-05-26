@@ -40,7 +40,7 @@ var ChoreChart = React.createClass({
           {
             daysOfWeek.map((dayOfWeek, index) =>
               <tr key={index}>
-                <td>{dayOfWeek}</td>
+                <th scope="row">{dayOfWeek}</th>
                 {
                   this.state.headers.map((header, index) =>
                     <td key={index}></td>
