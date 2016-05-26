@@ -1,4 +1,10 @@
 var ChoreChart = React.createClass({
+  getInitialState() {
+      return {
+          headers: _.range(8).map(_.constant(""))
+      };
+  },
+
   render: function() {
     var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday",
                       "Friday", "Saturday", "Sunday"];
