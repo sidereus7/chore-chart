@@ -30,16 +30,16 @@ var ChoreChart = React.createClass({
 
         <tbody>
           {
-            daysOfWeek.map(function(dayOfWeek, index) {
-              return (
-                <tr key={index}>
-                  <td>{dayOfWeek}</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              );
-            })
+            daysOfWeek.map((dayOfWeek, index) =>
+              <tr key={index}>
+                <td>{dayOfWeek}</td>
+                {
+                  this.state.headers.map((header, index) =>
+                    <td key={index}></td>
+                  )
+                }
+              </tr>
+            )
           }
         </tbody>
       </table>
