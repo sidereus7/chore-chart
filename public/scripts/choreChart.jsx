@@ -1,7 +1,9 @@
+const MIN_COLUMNS = 8;
+
 var ChoreChart = React.createClass({
   getInitialState() {
       return {
-          headers: _.range(8).map(_.constant(""))
+          headers: _.range(MIN_COLUMNS).map(_.constant(""))
       };
   },
 
