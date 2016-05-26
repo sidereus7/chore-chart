@@ -9,7 +9,7 @@ var ChoreChart = React.createClass({
 
   render: function() {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday",
-                      "Friday", "Saturday", "Sunday"];
+                        "Friday", "Saturday", "Sunday"];
 
     return (
       <table className="pure-table pure-table-bordered pure-table-striped">
