@@ -8,3 +8,8 @@ th[scope="row"] {
     border-bottom: 1px solid #cbcbcb;
     text-align: left;
 }
+
+input {
+    text-align: center;
+    width: 125px;
+}
