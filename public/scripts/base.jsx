@@ -55,7 +55,19 @@ var ChoreChart = React.createClass({
   }
 });
 
+var MainPage = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <h1>Chore Chart</h1>
+        <p>This chart is meant to help you organize your daily victories.</p>
+        <ChoreChart />
+      </div>
+    );
+  }
+});
+
 ReactDOM.render(
-  <ChoreChart />,
+  <MainPage />,
   document.getElementById('content')
 );
