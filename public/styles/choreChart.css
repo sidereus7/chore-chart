@@ -2,6 +2,7 @@
 
 #content {
     margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 .pure-table thead {
@@ -15,5 +16,34 @@ th[scope="row"] {
 
 input {
     text-align: center;
+    width: 100%;
+}
+
+.pure-table td {
+    /* font-size: 2em; */
+    text-align: center;
+}
+
+/* small */
+@media (min-width: 768px) {
+td, th[scope="row"] {
+    height: 75px;
+    width: 75px;
+}
+}
+
+/* medium */
+@media (min-width: 992px) {
+td, th[scope="row"] {
+    height: 100px;
+    width: 100px;
+}
+}
+
+/* large */
+@media (min-width: 1200px) {
+td, th[scope="row"] {
+    height: 125px;
     width: 125px;
+}
 }
