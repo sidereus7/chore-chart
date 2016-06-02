@@ -3,13 +3,16 @@ const MIN_COLUMNS = 8;
 var ChoreChart = React.createClass({
   getInitialState: function() {
       return {
-          headers: _.range(MIN_COLUMNS).map(_.constant(""))
+          columns: _.range(MIN_COLUMNS).map(() => ({
+            title: "",
+            data: _.range(MIN_COLUMNS).map(() => false)
+          }))
       };
   },
 
-  updateHeader: function(index, event) {
-    this.state.headers[index] = event.target.value;
-    this.setState({ headers: this.state.headers });
+  updateColumn: function(index, event) {
+    this.state.columns[index].title = event.target.value;
+    this.setState({ columns: this.state.columns });
   },
 
   render: function() {
@@ -22,13 +25,13 @@ var ChoreChart = React.createClass({
           <tr>
             <th></th>
             {
-              this.state.headers.map((header, index) =>
+              this.state.columns.map((column, index) =>
                 <th key={index}>
                   <input
                     type="text"
-                    value={header}
+                    value={column.title}
                     placeholder="<category>"
-                    onChange={this.updateHeader.bind(this, index)}
+                    onChange={this.updateColumn.bind(this, index)}
                   />
                 </th>
               )
@@ -42,7 +45,7 @@ var ChoreChart = React.createClass({
               <tr key={index}>
                 <th scope="row">{dayOfWeek}</th>
                 {
-                  this.state.headers.map((header, index) =>
+                  this.state.columns.map((column, index) =>
                     <td key={index}></td>
                   )
                 }
