@@ -15,6 +15,12 @@ var ChoreChart = React.createClass({
     this.setState({ columns: this.state.columns });
   },
 
+  updateCell: function(colIndex, dayIndex) {
+    let columnData = this.state.columns[colIndex].data;
+    columnData[dayIndex] = !columnData[dayIndex];
+    this.setState({ columns: this.state.columns });
+  },
+
   render: function() {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday",
                         "Friday", "Saturday", "Sunday"];
@@ -41,12 +47,17 @@ var ChoreChart = React.createClass({
 
         <tbody>
           {
-            daysOfWeek.map((dayOfWeek, index) =>
-              <tr key={index}>
+            daysOfWeek.map((dayOfWeek, dayIndex) =>
+              <tr key={dayIndex}>
                 <th scope="row">{dayOfWeek}</th>
                 {
-                  this.state.columns.map((column, index) =>
-                    <td key={index}></td>
+                  this.state.columns.map((column, colIndex) =>
+                    <td
+                      key={colIndex}
+                      onClick={this.updateCell.bind(this, colIndex, dayIndex)}
+                    >
+                      {column.data[dayIndex] && "X"}
+                    </td>
                   )
                 }
               </tr>
