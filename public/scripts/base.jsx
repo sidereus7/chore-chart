@@ -2,23 +2,41 @@ const MIN_COLUMNS = 8;
 
 var ChoreChart = React.createClass({
   getInitialState: function() {
-      return {
-          columns: _.range(MIN_COLUMNS).map(() => ({
-            title: "",
-            data: _.range(MIN_COLUMNS).map(() => false)
-          }))
-      };
+      let columnsJson = localStorage.choreChartData;
+      let createInitialData = () => (
+        _.range(MIN_COLUMNS).map(() => ({
+          title: "",
+          data: _.range(MIN_COLUMNS).map(() => false)
+        }))
+      );
+
+      let columns;
+      if (!columnsJson) {
+        columns = createInitialData();
+      } else {
+        try {
+          columns = JSON.parse(columnsJson);
+        } catch (e) {
+          columns = createInitialData();
+        }
+      }
+
+      return { columns: columns };
   },
 
   updateTitle: function(index, event) {
     this.state.columns[index].title = event.target.value;
     this.setState({ columns: this.state.columns });
+
+    localStorage.choreChartData = JSON.stringify(this.state.columns);
   },
 
   updateCell: function(colIndex, dayIndex) {
     let columnData = this.state.columns[colIndex].data;
     columnData[dayIndex] = !columnData[dayIndex];
     this.setState({ columns: this.state.columns });
+
+    localStorage.choreChartData = JSON.stringify(this.state.columns);
   },
 
   render: function() {
