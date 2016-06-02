@@ -10,7 +10,7 @@ var ChoreChart = React.createClass({
       };
   },
 
-  updateColumn: function(index, event) {
+  updateTitle: function(index, event) {
     this.state.columns[index].title = event.target.value;
     this.setState({ columns: this.state.columns });
   },
@@ -31,7 +31,7 @@ var ChoreChart = React.createClass({
                     type="text"
                     value={column.title}
                     placeholder="<category>"
-                    onChange={this.updateColumn.bind(this, index)}
+                    onChange={this.updateTitle.bind(this, index)}
                   />
                 </th>
               )
