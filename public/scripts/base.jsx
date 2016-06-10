@@ -2,41 +2,33 @@ const MIN_COLUMNS = 8;
 
 var ChoreChart = React.createClass({
   getInitialState: function() {
-      let columnsJson = localStorage.choreChartData;
-      let createInitialData = () => (
-        _.range(MIN_COLUMNS).map(() => ({
-          title: "",
-          data: _.range(MIN_COLUMNS).map(() => false)
-        }))
-      );
-
-      let columns;
-      if (!columnsJson) {
-        columns = createInitialData();
-      } else {
-        try {
-          columns = JSON.parse(columnsJson);
-        } catch (e) {
-          columns = createInitialData();
-        }
-      }
+      let columns = columnsStore.getColumns();
 
       return { columns: columns };
   },
 
-  updateTitle: function(index, event) {
-    this.state.columns[index].title = event.target.value;
-    this.setState({ columns: this.state.columns });
-
-    localStorage.choreChartData = JSON.stringify(this.state.columns);
+  componentWillMount: function() {
+    columnsStore.addChangeListener(this.getStateFromStores);
   },
 
-  updateCell: function(colIndex, dayIndex) {
-    let columnData = this.state.columns[colIndex].data;
-    columnData[dayIndex] = !columnData[dayIndex];
-    this.setState({ columns: this.state.columns });
+  componentWillUnmount: function() {
+    columnsStore.removeChangeListener(this.getStateFromStores);
+  },
 
-    localStorage.choreChartData = JSON.stringify(this.state.columns);
+  getStateFromStores: function() {
+    this.setState({ columns: columnsStore.getColumns() });
+  },
+
+  updateTitle: function(index, event) {
+    columnsStore.updateTitle(index, event.target.value);
+
+    localStorage.choreChartData = JSON.stringify(columnsStore.getColumns());
+  },
+
+  toggleCell: function(colIndex, dayIndex) {
+    columnsStore.toggleCell(colIndex, dayIndex);
+
+    localStorage.choreChartData = JSON.stringify(columnsStore.getColumns());
   },
 
   render: function() {
@@ -72,7 +64,7 @@ var ChoreChart = React.createClass({
                   this.state.columns.map((column, colIndex) =>
                     <td
                       key={colIndex}
-                      onClick={this.updateCell.bind(this, colIndex, dayIndex)}
+                      onClick={this.toggleCell.bind(this, colIndex, dayIndex)}
                     >
                       {column.data[dayIndex] && "X"}
                     </td>
