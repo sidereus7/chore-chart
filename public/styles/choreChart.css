@@ -14,7 +14,7 @@ th[scope="row"] {
     text-align: left;
 }
 
-input {
+.category {
     text-align: center;
     width: 100%;
 }

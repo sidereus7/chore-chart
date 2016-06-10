@@ -44,6 +44,7 @@ var ChoreChart = React.createClass({
               this.state.columns.map((column, index) =>
                 <th key={index}>
                   <input
+                    className="category"
                     type="text"
                     value={column.title}
                     placeholder="<category>"
