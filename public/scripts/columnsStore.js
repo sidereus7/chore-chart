@@ -1,3 +1,5 @@
+const MIN_COLUMNS = 8;
+
 let columnsJson = localStorage.choreChartData;
 let createInitialData = () => (
   _.range(MIN_COLUMNS).map(() => ({

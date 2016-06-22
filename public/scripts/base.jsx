@@ -1,5 +1,3 @@
-const MIN_COLUMNS = 8;
-
 var ChoreChart = React.createClass({
   getInitialState: function() {
       let columns = columnsStore.getColumns();
