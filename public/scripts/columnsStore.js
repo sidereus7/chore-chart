@@ -45,7 +45,7 @@ window.columnsStore = {
     columns = createInitialData();
     trigger();
   },
-  // TODO: reset cells
+
   resetCells() {
     columns.forEach(column => column.data = []);
     trigger();
