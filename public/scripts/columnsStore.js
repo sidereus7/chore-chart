@@ -46,6 +46,11 @@ window.columnsStore = {
     trigger();
   },
   // TODO: reset cells
+  resetCells() {
+    columns.forEach(column => column.data = []);
+    trigger();
+  },
+
   addChangeListener(callback) {
     changeCallbacks.push(callback);
   },

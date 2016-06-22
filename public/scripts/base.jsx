@@ -79,12 +79,41 @@ var ChoreChart = React.createClass({
 });
 
 var MainPage = React.createClass({
+  clearCells: function() {
+    columnsStore.resetCells();
+
+    localStorage.choreChartData = JSON.stringify(columnsStore.getColumns());
+  },
+
+  clearAll: function() {
+    const confMsg = "Are you sure you want to clear all categories and cells?";
+    if (window.confirm(confMsg)) {
+      columnsStore.resetChart();
+
+      localStorage.choreChartData = JSON.stringify(columnsStore.getColumns());
+    }
+  },
+
   render: function() {
     return (
       <div>
         <h1>Chore Chart</h1>
         <p>This chart is meant to help you organize your daily victories.</p>
         <ChoreChart />
+        <div className="clear-buttons">
+          <button
+            className="pure-button"
+            onClick={this.clearCells}
+          >
+            Clear cells
+          </button>
+          <button
+            className="pure-button"
+            onClick={this.clearAll}
+          >
+            Clear all
+          </button>
+        </div>
       </div>
     );
   }
