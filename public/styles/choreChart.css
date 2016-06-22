@@ -47,3 +47,11 @@ td, th[scope="row"] {
     width: 125px;
 }
 }
+
+.clear-buttons {
+    float: right;
+}
+
+.clear-buttons .pure-button {
+    margin: 0.5rem;
+}
