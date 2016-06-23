@@ -45,7 +45,6 @@ var ChoreChart = React.createClass({
                     className="category"
                     type="text"
                     value={column.title}
-                    placeholder="<category>"
                     onChange={this.updateTitle.bind(this, index)}
                   />
                 </th>
