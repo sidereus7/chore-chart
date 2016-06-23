@@ -37,10 +37,10 @@ var ChoreChart = React.createClass({
       <table className="pure-table pure-table-bordered pure-table-striped">
         <thead>
           <tr>
-            <th></th>
+            <th scope="col"></th>
             {
               this.state.columns.map((column, index) =>
-                <th key={index}>
+                <th scope="col" key={index}>
                   <input
                     className="category"
                     type="text"
@@ -98,7 +98,7 @@ var MainPage = React.createClass({
     return (
       <div>
         <h1>Chore Chart</h1>
-        <p>This chart is meant to help you organize your daily victories.</p>
+        <p>This chart is meant to help you organize your daily victories!</p>
         <ChoreChart />
         <div className="clear-buttons">
           <button

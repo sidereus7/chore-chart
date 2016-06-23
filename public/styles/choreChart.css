@@ -1,8 +1,26 @@
-/* Chore Chart base styles */
+/* Main Page Styles */
+
+body {
+    background-color: #e8e8e8;
+}
 
 #content {
+    color: #333a56;
     margin-left: 3rem;
     margin-right: 3rem;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+p {
+    font-size: 1.25em;
+}
+
+/* Chort Chart Styles */
+table {
+    background-color: white;
 }
 
 .pure-table thead {
@@ -11,7 +29,13 @@
 
 th[scope="row"] {
     border-bottom: 1px solid #cbcbcb;
+    font-size: 1.25em;
+    font-weight: bold;
     text-align: left;
+}
+
+th[scope="col"] {
+    background-color: #333a56;
 }
 
 .category {
@@ -20,8 +44,11 @@ th[scope="row"] {
 }
 
 .pure-table td {
-    /* font-size: 2em; */
     text-align: center;
+}
+
+.pure-table-striped tr:nth-child(2n-1) td {
+    background-color: #8598c2;
 }
 
 /* small */
@@ -46,6 +73,10 @@ td, th[scope="row"] {
     height: 125px;
     width: 125px;
 }
+}
+
+.pure-button {
+    background-color: white;
 }
 
 .clear-buttons {
